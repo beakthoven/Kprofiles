@@ -269,29 +269,26 @@ static inline int kp_display_notifier_callback(struct notifier_block *self,
 					       unsigned long event, void *data)
 {
 	struct kp_events *evdata = data;
-	unsigned int blank;
+	unsigned int *blank = evdata->data;
 
 	if (event != KP_EVENT_BLANK)
-		return 0;
+		return NOTIFY_DONE;
 
-	if (evdata && evdata->data) {
-		blank = *(int *)(evdata->data);
-		switch (blank) {
-		case KP_BLANK_POWERDOWN:
-			if (!screen_on)
-				break;
-			screen_on = false;
-			kp_trigger_mode_change_event();
+	switch (*blank) {
+	case KP_BLANK_POWERDOWN:
+		if (!screen_on)
 			break;
-		case KP_BLANK_UNBLANK:
-			if (screen_on)
-				break;
-			screen_on = true;
-			kp_trigger_mode_change_event();
+		screen_on = false;
+		kp_trigger_mode_change_event();
+		break;
+	case KP_BLANK_UNBLANK:
+		if (screen_on)
 			break;
-		default:
-			break;
-		}
+		screen_on = true;
+		kp_trigger_mode_change_event();
+		break;
+	default:
+		break;
 	}
 
 	return NOTIFY_OK;
