@@ -15,9 +15,9 @@
  * time-based rules.
  *
  * For more information and usage examples, refer to the README file at:
- * https://github.com/dakkshesh07/Kprofiles/blob/main/README.md
+ * https://github.com/beakthoven/Kprofiles/blob/main/README.md
  *
- * Copyright (C) 2021-2023 Dakkshesh <dakkshesh5@gmail.com>
+ * Copyright (C) 2021-2025 Dakkshesh <dakkshesh5@gmail.com>
  * Version: 6.0.0
  * License: GPL-2.0
  */
@@ -402,8 +402,8 @@ static int __init kp_init(void)
 	}
 
 	kp_info("Kprofiles " KPROFILES_VERSION
-		" loaded successfully. For further details, visit https://github.com/dakkshesh07/Kprofiles/blob/main/README.md\n");
-	kp_info("Copyright (C) 2021-2023 Dakkshesh <dakkshesh5@gmail.com>.\n");
+		" loaded successfully. For further details, visit https://github.com/beakthoven/Kprofiles/blob/main/README.md\n");
+	kp_info("Copyright (C) 2021-2025 Dakkshesh <dakkshesh5@gmail.com>.\n");
 
 	return ret;
 }
